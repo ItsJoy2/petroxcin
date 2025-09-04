@@ -40,7 +40,15 @@
                 @forelse ($deposits as $index => $deposit)
                     <tr>
                         <td>{{ $index + $deposits->firstItem() }}</td>
-                        <td>{{ $deposit->details }}</td>
+                        <td class="d-flex">
+                            <span id="details-{{ $withdraw->id }}">{{ $withdraw->details }}</span>
+                            <button class="btn btn-sm copy-btn"
+                                    data-copy-target="details-{{ $withdraw->id }}"
+                                    title="Copy"
+                                    style="margin-left: 5px; padding-bottom: 23px;">
+                                <i class="fas fa-copy" style="line-height: 0;"></i>
+                            </button>
+                        </td>
                         <td>{{ $deposit->user->name ?? 'N/A' }}</td>
                         <td>${{$deposit->amount}}</td>
 
@@ -139,3 +147,34 @@
         @endif
     </div>
 @endsection
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const copyButtons = document.querySelectorAll('.copy-btn');
+
+        copyButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const targetId = this.getAttribute('data-copy-target');
+                const textToCopy = document.getElementById(targetId).innerText;
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Copied!',
+                        text: 'Wallet address copied to clipboard!',
+                        timer: 1500,
+                        showConfirmButton: false
+                    });
+                }).catch(err => {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error!',
+                        text: 'Failed to copy!',
+                        timer: 1500,
+                        showConfirmButton: false
+                    });
+                });
+            });
+        });
+    });
+</script>
