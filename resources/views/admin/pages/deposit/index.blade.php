@@ -41,9 +41,9 @@
                     <tr>
                         <td>{{ $index + $deposits->firstItem() }}</td>
                         <td class="d-flex">
-                            <span id="details-{{ $withdraw->id }}">{{ $withdraw->details }}</span>
+                            <span id="details-{{ $deposit->id }}">{{ $deposit->details }}</span>
                             <button class="btn btn-sm copy-btn"
-                                    data-copy-target="details-{{ $withdraw->id }}"
+                                    data-copy-target="details-{{ $deposit->id }}"
                                     title="Copy"
                                     style="margin-left: 5px; padding-bottom: 23px;">
                                 <i class="fas fa-copy" style="line-height: 0;"></i>
@@ -161,7 +161,7 @@
                     Swal.fire({
                         icon: 'success',
                         title: 'Copied!',
-                        text: 'Wallet address copied to clipboard!',
+                        text: 'Deposit address copied to clipboard!',
                         timer: 1500,
                         showConfirmButton: false
                     });
