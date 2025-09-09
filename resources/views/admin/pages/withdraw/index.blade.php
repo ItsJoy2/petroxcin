@@ -164,10 +164,7 @@
             button.addEventListener('click', function () {
                 const targetId = this.getAttribute('data-copy-target');
                 const textToCopy = document.getElementById(targetId).innerText;
-
-                // কপি টেক্সট
                 navigator.clipboard.writeText(textToCopy).then(() => {
-                    // SweetAlert2 ব্যবহার করলে এই অংশ কাজ করবে
                     Swal.fire({
                         icon: 'success',
                         title: 'Copied!',

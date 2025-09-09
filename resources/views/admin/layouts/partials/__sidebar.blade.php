@@ -5,7 +5,7 @@
         <!-- Logo Header -->
         <div class="logo-header" data-background-color="dark">
             <a href="/dashboard" class="logo">
-                <img src="https://yeldo-front-puce.vercel.app/_next/static/media/logo.beb988fc.png" alt="App Name" class="navbar-brand" height="20">
+                <img src="{{ asset('storage/' . $generalSettings->logo) }}" alt="{{ $generalSettings->app_name ?? 'App Name' }}" class="navbar-brand" height="40">
             </a>
             <div class="nav-toggle">
                 <button class="btn btn-toggle toggle-sidebar">
@@ -62,9 +62,9 @@
                             <p class="m-0">Withdraw</p>
                         </div>
 
-                        @if(isset($dashboardData['pendingWithdrawals']) && $dashboardData['pendingWithdrawals'] > 0)
+                        @if(isset($dashboardData['pendingWithdrawalsCount']) && $dashboardData['pendingWithdrawalsCount'] > 0)
                             <span class="badge bg-danger ms-2">
-                {{ $dashboardData['pendingWithdrawals'] }}
+                {{ $dashboardData['pendingWithdrawalsCount'] }}
             </span>
                         @endif
                     </a>
@@ -139,6 +139,7 @@
                             <li><a href="/holidays"><span class="sub-item {{ Str::contains(request()->path(), 'holidays') ? 'active' : '' }}">Holidays Setting</span></a></li>
                             <li><a href="/withdraws/settings"><span class="sub-item">Withdraws Settings</span></a></li>
                             <li><a href="/ReferralsSettings"><span class="sub-item">Referral Settings</span></a></li>
+                            <li><a href="/general-settings"><span class="sub-item">General Settings</span></a></li>
                         </ul>
                     </div>
                 </li>

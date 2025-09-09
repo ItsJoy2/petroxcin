@@ -12,6 +12,7 @@ use App\Http\Controllers\admin\WithdrawController;
 use App\Http\Controllers\admin\AdminTicketController;
 use App\Http\Controllers\admin\TransactionsController;
 use App\Http\Controllers\admin\AdminDashboardController;
+use App\Http\Controllers\admin\GeneralSettingsController;
 use App\Http\Controllers\admin\WithdrawSettingsController;
 use App\Http\Controllers\admin\ReferralsSettingsController;
 
@@ -55,6 +56,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/tickets/{id}', [AdminTicketController::class, 'show'])->name('admin.tickets.show');
     Route::post('/tickets/{id}/reply', [AdminTicketController::class, 'reply'])->name('admin.tickets.reply');
     Route::post('/tickets/{id}/close', [AdminTicketController::class, 'close'])->name('admin.tickets.close');
+
+        // General Settings
+    Route::get('general-settings', [GeneralSettingsController::class, 'index'])->name('admin.general.settings');
+    Route::post('general-settings', [GeneralSettingsController::class, 'update'])->name('admin.general.settings.update');
 
 });
 

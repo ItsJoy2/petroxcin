@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    @php
+        use App\Models\GeneralSetting;
+        $generalSettings = GeneralSetting::first();
+    @endphp
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $generalSettings->app_name ?? 'Laravel Admin' }}</title>
@@ -99,7 +103,7 @@
 <body>
 <div class="login-wrapper">
     <div class="logo">
-        <img src="https://yeldo-front-puce.vercel.app/_next/static/media/logo.beb988fc.png" alt="Logo">
+        <img src="{{ asset('storage/' . $generalSettings->logo) }}" alt="{{ $generalSettings->app_name ?? 'App Name' }}" class="navbar-brand" height="40">
     </div>
     <h2>Admin Login</h2>
 
