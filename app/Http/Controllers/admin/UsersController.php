@@ -65,7 +65,7 @@ class UsersController extends Controller
         }
     }
 
-        public function investmentHistory(Request $request)
+    public function investmentHistory(Request $request)
     {
         $query = Investor::with('user');
 
