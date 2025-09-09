@@ -54,8 +54,7 @@
                             <td>{{ $inv->package_name ?? 'N/A' }}</td>
                             <td>${{ number_format($inv->investment, 2) }}</td>
                             {{-- <td>${{ number_format($inv->payable_amount, 2) }}</td> --}}
-                            <td>{{ $inv->duration }} Days</td>
-                            <td>{{ $inv->total_receive_day }} Days</td>
+                            <td>{{ $inv->duration == 0 ? 'Unlimited' : $inv->duration . ' Days' }}</td>
                             <td>{{ $inv->total_due_day }} Days</td>
                             <td>
                                 @if($inv->status)
