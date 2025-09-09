@@ -41,7 +41,7 @@
                         <th>Investment</th>
                         <th>Duration</th>
                         <th>Total Received</th>
-                        <th>Total Due</th>
+                        {{-- <th>Total Due</th> --}}
                         <th>Status</th>
                     </tr>
                 </thead>
@@ -55,7 +55,7 @@
                             <td>${{ number_format($inv->investment, 2) }}</td>
                             {{-- <td>${{ number_format($inv->payable_amount, 2) }}</td> --}}
                             <td>{{ $inv->duration == 0 ? 'Unlimited' : $inv->duration . ' Days' }}</td>
-                            <td>{{ $inv->total_due_day }} Days</td>
+                            {{-- <td>{{ $inv->total_due_day }} Days</td> --}}
                             <td>
                                 @if($inv->status)
                                     <span class="badge bg-success">Running</span>
