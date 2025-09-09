@@ -55,6 +55,7 @@
                             <td>${{ number_format($inv->investment, 2) }}</td>
                             {{-- <td>${{ number_format($inv->payable_amount, 2) }}</td> --}}
                             <td>{{ $inv->duration == 0 ? 'Unlimited' : $inv->duration . ' Days' }}</td>
+                            <td>{{ $inv->total_receive_day }} Days</td>
                             {{-- <td>{{ $inv->total_due_day }} Days</td> --}}
                             <td>
                                 @if($inv->status)
@@ -66,7 +67,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="10" class="text-center text-muted">No investment history found.</td>
+                            <td colspan="8" class="text-center text-muted">No investment history found.</td>
                         </tr>
                     @endforelse
                 </tbody>
