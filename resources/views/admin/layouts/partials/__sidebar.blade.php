@@ -88,6 +88,15 @@
                         <p>Transactions</p>
                     </a>
                 </li>
+
+                                <!-- Investment History -->
+                <li class="nav-item {{ request()->is('admin/investments') ? 'active' : '' }}">
+                    <a href="{{ route('admin.investments') }}">
+                        <i class="fas fa-coins"></i>
+                        <p>Investment History</p>
+                    </a>
+                </li>
+                
                 <!-- KYC -->
                 @php
                     use App\Models\kyc;

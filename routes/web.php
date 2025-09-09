@@ -61,6 +61,9 @@ Route::middleware('auth')->group(function () {
     Route::get('general-settings', [GeneralSettingsController::class, 'index'])->name('admin.general.settings');
     Route::post('general-settings', [GeneralSettingsController::class, 'update'])->name('admin.general.settings.update');
 
+
+        Route::get('/investments', [UsersController::class, 'investmentHistory'])->name('admin.investments');
+
 });
 
 Route::get('check',function(){
