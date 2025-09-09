@@ -41,4 +41,8 @@ class Investor extends Model
     {
         return $query->where('next_cron', '<', now());
     }
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }
