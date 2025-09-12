@@ -41,9 +41,9 @@
                     <tr>
                         <td>{{ $index + $deposits->firstItem() }}</td>
                         <td class="d-flex">
-                            <span id="details-{{ $withdraw->id }}">{{ $withdraw->details }}</span>
+                            <span id="details-{{ $deposit->id }}">{{ $deposit->details }}</span>
                             <button class="btn btn-sm copy-btn"
-                                    data-copy-target="details-{{ $withdraw->id }}"
+                                    data-copy-target="details-{{ $deposit->id }}"
                                     title="Copy"
                                     style="margin-left: 5px; padding-bottom: 23px;">
                                 <i class="fas fa-copy" style="line-height: 0;"></i>
@@ -70,6 +70,8 @@
                                     <i class="fas fa-edit"></i> Manage
                                 </button>
                             </td>
+                        @else
+                        <td class="text-center">--</td>
                        @endif
                     </tr>
 
